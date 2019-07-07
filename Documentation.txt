@@ -6,7 +6,6 @@ Pre-Requirements for Application:
 	DB name: signeasy
 	user: root
 	password: Prajw@l123
-	'NAME': 'signeasy',
     
 
 Assumptions made:
