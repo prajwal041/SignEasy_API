@@ -1,0 +1,99 @@
+Pre-Requirements for Application:
+- download & install Python 3.5+ from official site
+- check pip version: pip --version
+- download & install PostgreSQL from official site
+- set the username & password as in the settings.py (check the databases section for username, password, DB name)
+	DB name: signeasy
+	user: root
+	password: Prajw@l123
+	'NAME': 'signeasy',
+    
+
+Assumptions made:
+- RDBMS at the backend(MySQL)
+- Django, a python web framework is used for this application. It's a MVT architecture widely used to create RESTful applications.
+
+
+Database setup in app:
+change the directory to under mstakx & this is the file system structure in Django.
+
+├── signeasy
+├   myapp
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── admin.py
+│   ├── models.py
+│   ├── serialaizers.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+│   
+│   ├── signeasy
+│   │   ├── __init__.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   └── manage.py
+└── requirements.txt
+
+$ python manage.py makemigrations myapp
+$ python manage.py migrate
+
+this will create tables & performs all migrations in the database postgres through django models
+
+Schema:
+Books table
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| bname     | varchar(255) | YES  |     | NULL    |       |
+| book_id   | varchar(255) | NO   | PRI | NULL    |       |
+| no_copies | int(11)      | NO   |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+
+User table
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| uname   | varchar(255) | YES  |     | NULL    |       |
+| user_id | varchar(255) | NO   | PRI | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+
+Testing the application on local server:
+$ python manage.py runserver 8000
+
+The application will be running on localhost with default port no 8000
+
+
+REST API Endpoints
+Pre Requisite: use postman to view pretty json
+
+GET http://localhost:8000/api/v1/books							---------------> Retrieve all books
+POST http://localhost:8000/api/v1/books							---------------> Create the books
+DELETE http://localhost:8000/api/book/<book_id>/				---------------> DELETE the books
+
+GET http://localhost:8000/api/v1/members						---------------> Retrieve all users
+POST http://localhost:8000/api/v1/members						---------------> Add the user
+DELETE http://localhost:8000/api/member/<book_id>/				---------------> DELETE the books
+
+GET http://localhost:8000/api/borrow/<book_id>/					---------------> Borrow the books
+GET http://localhost:8000/api/return/<book_id>/					---------------> Return the books
+
+
+
+
+Developer contact:
+For more info reach out,
+Prajwal Shetty
+prajwal041@gmail.com
+github: https://github.com/prajwal041
+
+
+
+
+
+
+
